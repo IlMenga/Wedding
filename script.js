@@ -2,6 +2,8 @@
   function go(lang) {
     document.documentElement.setAttribute('data-lang', lang);
     try { localStorage.setItem('ap-lang', lang); } catch(e) {}
+    var fl = document.getElementById('form-lang');
+    if (fl) fl.value = lang;
     ['en','it','es'].forEach(function(l) {
       var b = document.getElementById('nb-'+l);
       if (b) b.className = l===lang ? 'nlb on' : 'nlb';
@@ -62,18 +64,47 @@
     // RSVP form
     var form = document.getElementById('rf');
     if (form) {
-      form.addEventListener('submit', function(e){
+      // Conditional fields: dietary + message inactive when attending=no
+      var conditionals = form.querySelectorAll('#f-dietary-row, #f-message-row');
+      function toggleConditional() {
+        var val = form.querySelector('input[name="attending"]:checked');
+        var attending = val && val.value === 'yes';
+        conditionals.forEach(function(el) {
+          if (attending) { el.classList.remove('inactive'); }
+          else           { el.classList.add('inactive'); }
+        });
+      }
+      form.querySelectorAll('input[name="attending"]').forEach(function(r) {
+        r.addEventListener('change', toggleConditional);
+      });
+      toggleConditional();
+
+      form.addEventListener('submit', function(e) {
         e.preventDefault();
-        var d = {};
-        new FormData(form).forEach(function(v,k){ d[k]=v; });
-        if (!d.name || !d.email || !d.attending || !d.guests) {
-          alert('Please fill in all required fields.');
+        var data = {};
+        new FormData(form).forEach(function(v,k){ data[k]=v; });
+        if (!data.name || !data.name.trim()) {
+          alert('Please enter your name.');
           return;
         }
-        // TODO: Netlify Forms -> add data-netlify="true" to the form tag
-        console.log('RSVP:', d);
-        form.style.display = 'none';
-        document.getElementById('ok').style.display = 'block';
+        if (!data.attending) {
+          alert('Please confirm whether you will attend.');
+          return;
+        }
+        var btn = form.querySelector('.sub');
+        if (btn) { btn.disabled = true; btn.style.opacity = '.5'; }
+        fetch('https://script.google.com/macros/s/AKfycbwbbRmRH20BHsMFnTGQs4sRahkDaREHoNfljhfRAcgQEBr0WhhBpPVzDBQHZ1WMWy0/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        }).then(function() {
+          form.style.display = 'none';
+          document.getElementById('ok').style.display = 'block';
+        }).catch(function() {
+          if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+          alert('Something went wrong. Please try again.');
+        });
       });
     }
 

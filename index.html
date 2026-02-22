@@ -447,10 +447,7 @@
     <h2><span class="e">Will you be <em>joining us?</em></span><span class="i">Ci sarete <em>con noi?</em></span><span class="s">&iquest;Vendr&eacute;is a <em>celebrar con nosotros?</em></span></h2>
     <div class="rule"></div>
     <p class="lead"><span class="e">Please let us know by <strong>1 April 2026</strong>. Fill in one form per party.</span><span class="i">Vi chiediamo di rispondere entro il <strong>1&deg; aprile 2026</strong>. Compilate un modulo per ogni gruppo.</span><span class="s">Confirmad antes del <strong>1 de abril de 2026</strong>. Rellenad un formulario por grupo.</span></p>
-    <form id="rf" name="rsvp" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-
-      <!-- Netlify honeypot (anti-spam, hidden) -->
-      <p style="display:none"><label>Don't fill this out: <input name="bot-field"/></label></p>
+    <form id="rf" novalidate>
 
       <!-- Hidden: language used to fill the form -->
       <input type="hidden" name="language" id="form-lang" value="en"/>
@@ -481,7 +478,7 @@
       </div>
 
       <!-- ── 3. Dietary (shown only if attending=yes) ── -->
-      <div class="fr full" id="f-dietary-row">
+      <div class="fr full conditional inactive" id="f-dietary-row">
         <div class="fi">
           <label for="f-dietary"><span class="e">Dietary restrictions or allergies</span><span class="i">Allergie o intolleranze alimentari</span><span class="s">Alergias o intolerancias alimentarias</span></label>
           <textarea id="f-dietary" name="dietary" rows="2"></textarea>
@@ -489,7 +486,7 @@
       </div>
 
       <!-- ── 4. Message ── -->
-      <div class="fr full" id="f-message-row">
+      <div class="fr full conditional inactive" id="f-message-row">
         <div class="fi">
           <label for="f-message"><span class="e">A message for us</span><span class="i">Un messaggio per noi</span><span class="s">Un mensaje para nosotros</span></label>
           <textarea id="f-message" name="message" rows="3"></textarea>
@@ -497,7 +494,7 @@
       </div>
 
       <button type="submit" class="sub"><span class="e">Send RSVP</span><span class="i">Invia RSVP</span><span class="s">Enviar confirmación</span></button>
-      <p class="fnote"><span class="e">Questions?</span><span class="i">Domande?</span><span class="s">¿Preguntas?</span> <a href="/cdn-cgi/l/email-protection#e8808d848487a889848d9081899889878487c68b8785"><span class="__cf_email__" data-cfemail="442c2128282b042528213c2d2534252b282b6a272b29">[email&#160;protected]</span></a></p>
+      <p class="fnote"><span class="e">Questions?</span><span class="i">Domande?</span><span class="s">¿Preguntas?</span> <a href="mailto:hello@alexiapolo.com">hello@alexiapolo.com</a></p>
     </form>
     <div class="ok" id="ok">
       <span class="e">Thank you! &#128155;<span>We can't wait to celebrate with you on the Costa Brava.</span></span>
