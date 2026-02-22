@@ -9,6 +9,8 @@
       if (b) b.className = l===lang ? 'nlb on' : 'nlb';
     });
     document.getElementById('landing').classList.add('gone');
+    var fb = document.getElementById('flip-btn');
+    if (fb) fb.style.display = 'none';
     document.getElementById('site').classList.add('on');
     try { window.scrollTo(0,0); } catch(e) {}
     document.body.scrollTop = 0;
@@ -19,6 +21,8 @@
   function home() {
     document.getElementById('site').classList.remove('on');
     document.getElementById('landing').classList.remove('gone');
+    var fb = document.getElementById('flip-btn');
+    if (fb) fb.style.display = '';
     try { localStorage.removeItem('ap-lang'); } catch(e) {}
     window.scrollTo(0,0);
   }
@@ -43,15 +47,30 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    // Language buttons (landing + nav)
+    // Language buttons (landing front + back + nav)
     ['en','it','es'].forEach(function(lang) {
       var lb = document.getElementById('lb-'+lang);
       if (lb) lb.addEventListener('click', function(){ go(lang); });
+      var lb2 = document.getElementById('lb2-'+lang);
+      if (lb2) lb2.addEventListener('click', function(){ go(lang); });
       var nb = document.getElementById('nb-'+lang);
       if (nb) nb.addEventListener('click', function(){ go(lang); });
     });
 
-    // Back button
+    // Postcard flip
+    var flipBtn = document.getElementById('flip-btn');
+    var cardEl = document.getElementById('card');
+    var flipped = false;
+    if (flipBtn && cardEl) {
+      flipBtn.addEventListener('click', function() {
+        flipped = !flipped;
+        cardEl.style.transition = 'transform .8s cubic-bezier(.4,0,.2,1)';
+        cardEl.style.transform = flipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+        flipBtn.textContent = flipped ? '\u21A9 flip back' : '\u21A9 flip';
+      });
+    }
+
+    // Back button (footer)
     var back = document.getElementById('back-btn');
     if (back) back.addEventListener('click', home);
 
@@ -64,18 +83,37 @@
     // RSVP form
     var form = document.getElementById('rf');
     if (form) {
-      // Conditional fields: dietary + message inactive when attending=no
-      var conditionals = form.querySelectorAll('#f-dietary-row, #f-message-row');
+      // Conditional fields
+      var attendFields = form.querySelectorAll('#f-plusone-row, #f-dietary-row, #f-message-row');
+      var partnerRow = document.getElementById('f-partner-row');
+
       function toggleConditional() {
         var val = form.querySelector('input[name="attending"]:checked');
         var attending = val && val.value === 'yes';
-        conditionals.forEach(function(el) {
+        attendFields.forEach(function(el) {
           if (attending) { el.classList.remove('inactive'); }
           else           { el.classList.add('inactive'); }
         });
+        if (!attending && partnerRow) partnerRow.classList.add('inactive');
+        togglePartner();
       }
+
+      function togglePartner() {
+        var val = form.querySelector('input[name="plus_one"]:checked');
+        var yes = val && val.value === 'yes';
+        var attending = form.querySelector('input[name="attending"]:checked');
+        var isAttending = attending && attending.value === 'yes';
+        if (partnerRow) {
+          if (yes && isAttending) { partnerRow.classList.remove('inactive'); }
+          else                    { partnerRow.classList.add('inactive'); }
+        }
+      }
+
       form.querySelectorAll('input[name="attending"]').forEach(function(r) {
         r.addEventListener('change', toggleConditional);
+      });
+      form.querySelectorAll('input[name="plus_one"]').forEach(function(r) {
+        r.addEventListener('change', togglePartner);
       });
       toggleConditional();
 
@@ -108,6 +146,15 @@
       });
     }
 
+
+    // Women ideas gallery toggle
+    var wBtn = document.getElementById('women-ideas-btn');
+    var wGal = document.getElementById('women-gallery');
+    if (wBtn && wGal) {
+      wBtn.addEventListener('click', function() {
+        wGal.classList.toggle('open');
+      });
+    }
 
     // IBAN copy
     var ibanBtn = document.getElementById('iban-copy-btn');
