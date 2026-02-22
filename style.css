@@ -212,37 +212,7 @@
   .sw{padding:4rem 1.4rem}
   h2{font-size:clamp(1.8rem,7vw,2.6rem)}
 
-  /* Timeline — zigzag (EN) collapses to single column */
-  .tl-zigzag .tz-item{
-    display:flex;flex-direction:column;gap:1rem;
-    margin-bottom:2.5rem;
-  }
-  .tl-zigzag .tz-item:nth-child(odd) .tz-img,
-  .tl-zigzag .tz-item:nth-child(even) .tz-img{
-    padding:0;text-align:center;
-  }
-  .tl-zigzag .tz-item:nth-child(odd) .tz-body,
-  .tl-zigzag .tz-item:nth-child(even) .tz-body{
-    padding:0;text-align:left;
-  }
-  .tz-img img,.tz-img>div{max-width:200px;margin:0 auto;display:block}
-  .tz-node{display:none}
-  .tl-zigzag .tz-path{display:none}
-  .tz-title{font-size:1.4rem}
-  .tz-desc{font-size:.88rem}
-
-  /* Timeline — scattered (IT) collapses to stacked */
-  .ts-item,.ts-item:nth-child(even){
-    flex-direction:column;
-    margin-left:0;margin-right:0;
-  }
-  .ts-img{width:100%;text-align:center}
-  .ts-img img{width:160px;transform:none !important;display:inline-block}
-  .ts-card{transform:none !important}
-  .ts-title{font-size:1.4rem}
-  .ts-desc{font-size:.88rem}
-
-  /* Timeline — story (ES) */
+  /* Timeline — story cards (all languages) mobile */
   .tst-item{grid-template-columns:56px 1fr;gap:.9rem}
   .tst-num{width:56px;height:56px}
   .tst-n{font-size:1.4rem}
@@ -299,7 +269,7 @@
   /* RSVP form */
   .fr { grid-template-columns: 1fr; }
   /* Images not too huge on mobile */
-  .tz-img img, .ts-img img, .tst-img img { max-height:200px; }
+  .tst-img img { max-height:200px; }
   /* Lista nozze */
   .iban-box { padding:1.1rem; }
   .iban-copy { position:static; display:block; margin-bottom:.8rem; width:100%; text-align:center; padding:.5rem; }
@@ -319,98 +289,7 @@
        TIMELINE LAYOUTS — per language
        ════════════════════════════════════════ */
 
-    /* ── EN: Zigzag path layout ── */
-    .tl-zigzag { position:relative; padding:2rem 0; max-width:700px; }
-    .tl-zigzag .tz-path {
-      position:absolute; top:0; left:50%; transform:translateX(-50%);
-      width:2px; height:100%;
-      background:repeating-linear-gradient(
-        to bottom,
-        var(--gold) 0, var(--gold) 8px,
-        transparent 8px, transparent 16px
-      );
-    }
-    .tl-zigzag .tz-item {
-      display:grid;
-      grid-template-columns:1fr 60px 1fr;
-      align-items:center;
-      margin-bottom:3.5rem;
-      position:relative;
-    }
-    .tl-zigzag .tz-item:nth-child(odd) .tz-img  { grid-column:1; text-align:right; padding-right:2rem; }
-    .tl-zigzag .tz-item:nth-child(odd) .tz-body { grid-column:3; padding-left:2rem; }
-    .tl-zigzag .tz-item:nth-child(even) .tz-img  { grid-column:3; grid-row:1; text-align:left; padding-left:2rem; }
-    .tl-zigzag .tz-item:nth-child(even) .tz-body { grid-column:1; grid-row:1; text-align:right; padding-right:2rem; }
-    .tz-node {
-      grid-column:2; grid-row:1;
-      width:40px; height:40px; border-radius:50%;
-      background:var(--cream); border:2px solid var(--gold);
-      display:flex; align-items:center; justify-content:center;
-      font-size:1rem; z-index:2; position:relative;
-      align-self:center; justify-self:center;
-    }
-    .tz-img img {
-      max-width:180px; max-height:160px;
-      object-fit:contain;
-      transform:rotate(-3deg);
-      filter:drop-shadow(2px 4px 8px rgba(0,0,0,.10));
-    }
-    .tz-item:nth-child(even) .tz-img img { transform:rotate(2.5deg); }
-    .tz-time { font-family:var(--sans); font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:.25rem; }
-    .tz-title { font-family:var(--serif); font-size:1.6rem; font-weight:300; line-height:1.15; color:var(--ink); margin-bottom:.35rem; }
-    .tz-venue { font-family:var(--sans); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone); margin-bottom:.5rem; }
-    .tz-venue a { color:var(--accent); text-decoration:none; }
-    .tz-desc { font-size:.9rem; color:var(--stone); line-height:1.65; }
-    @media(max-width:650px) {
-      .tl-zigzag .tz-item { grid-template-columns:1fr; gap:.8rem; text-align:left !important; }
-      .tl-zigzag .tz-item:nth-child(odd) .tz-img,
-      .tl-zigzag .tz-item:nth-child(even) .tz-img  { grid-column:1; padding:0; text-align:center; }
-      .tl-zigzag .tz-item:nth-child(odd) .tz-body,
-      .tl-zigzag .tz-item:nth-child(even) .tz-body { grid-column:1; text-align:left !important; padding:0; }
-      .tz-node { display:none; }
-      .tl-zigzag .tz-path { display:none; }
-      .tz-img img { max-width:140px; transform:none !important; }
-    }
-
-    /* ── IT: Scattered cards layout ── */
-    .tl-scattered { position:relative; padding:1rem 0 2rem; }
-    .ts-item {
-      display:flex; gap:1.8rem; align-items:flex-start;
-      margin-bottom:3rem; position:relative;
-    }
-    .ts-item:nth-child(even) { flex-direction:row-reverse; margin-left:3rem; }
-    .ts-item:nth-child(odd)  { margin-right:3rem; }
-    .ts-card {
-      background:var(--cream); border:1px solid var(--border);
-      border-radius:3px; padding:1.4rem 1.6rem; flex:1;
-      box-shadow:3px 5px 18px rgba(0,0,0,.07);
-    }
-    .ts-item:nth-child(odd)  .ts-card { transform:rotate(-1deg); }
-    .ts-item:nth-child(even) .ts-card { transform:rotate(1.2deg); }
-    .ts-img { flex:0 0 auto; width:160px; }
-    .ts-img img {
-      width:160px; object-fit:contain;
-      filter:drop-shadow(2px 6px 10px rgba(0,0,0,.12));
-    }
-    .ts-item:nth-child(odd)  .ts-img img { transform:rotate(4deg); }
-    .ts-item:nth-child(even) .ts-img img { transform:rotate(-3deg); }
-    .ts-connector {
-      position:absolute; left:0; right:0; bottom:-1.8rem;
-      height:1.8rem; overflow:hidden; pointer-events:none;
-    }
-    .ts-time { font-family:var(--sans); font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:.25rem; }
-    .ts-title { font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--ink); margin-bottom:.3rem; line-height:1.15; }
-    .ts-venue { font-family:var(--sans); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone); margin-bottom:.5rem; }
-    .ts-venue a { color:var(--accent); text-decoration:none; }
-    .ts-desc { font-size:.9rem; color:var(--stone); line-height:1.65; }
-    @media(max-width:650px) {
-      .ts-item, .ts-item:nth-child(even) { flex-direction:column; margin-left:0; margin-right:0; }
-      .ts-img { width:100%; text-align:center; }
-      .ts-img img { width:130px; transform:none !important; }
-      .ts-card { transform:none !important; }
-    }
-
-    /* ── ES: Story cards with big numbers ── */
+    /* ── Story cards with big numbers (all languages) ── */
     .tl-story { position:relative; }
     .tst-item {
       display:grid; grid-template-columns:80px 1fr;
