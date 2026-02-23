@@ -199,7 +199,6 @@
 
   /* Landing — Postcard mobile */
   #card-wrap{height:auto;aspect-ratio:520/360}
-  .stamp-area,.postmark{display:none}
   .front-names{font-size:clamp(2rem,10vw,3rem)}
   .front{padding:1.5rem 1.2rem}
   .front::before{inset:8px}
