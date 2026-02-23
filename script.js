@@ -8,6 +8,10 @@
       var b = document.getElementById('nb-'+l);
       if (b) b.className = l===lang ? 'nlb on' : 'nlb';
     });
+    var toggle = document.getElementById('lang-toggle');
+    if (toggle) toggle.textContent = lang.toUpperCase() + ' \u25BE';
+    var menu = document.getElementById('lang-menu');
+    if (menu) menu.classList.remove('open');
     document.getElementById('landing').classList.add('gone');
     var fb = document.getElementById('flip-btn');
     if (fb) fb.style.display = 'none';
@@ -56,6 +60,22 @@
       var nb = document.getElementById('nb-'+lang);
       if (nb) nb.addEventListener('click', function(){ go(lang); });
     });
+
+    // Language dropdown toggle
+    var langToggle = document.getElementById('lang-toggle');
+    var langMenu = document.getElementById('lang-menu');
+    if (langToggle && langMenu) {
+      langToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        langMenu.classList.toggle('open');
+      });
+      document.addEventListener('click', function() {
+        langMenu.classList.remove('open');
+      });
+      langMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
 
     // Postcard flip
     var flipBtn = document.getElementById('flip-btn');

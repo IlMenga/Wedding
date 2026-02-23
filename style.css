@@ -76,10 +76,14 @@
     .nl{display:flex;gap:2rem;align-items:center}
     .nl a{font-family:var(--sans);font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .2s;-webkit-tap-highlight-color:transparent}
     .nl a:hover{color:var(--accent)}
-    .nlg{display:flex;gap:.6rem}
-    .nlb{font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);background:none;border:1px solid transparent;border-radius:2px;padding:.55rem .7rem;cursor:pointer;transition:all .2s;-webkit-appearance:none;touch-action:manipulation;min-height:44px;display:inline-flex;align-items:center}
-    .nlb:hover{border-color:var(--border);color:var(--ink)}
-    .nlb.on{border-color:var(--gold);color:var(--gold)}
+    .nlg{position:relative}
+    .nlg-toggle{font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);background:none;border:1px solid var(--border);border-radius:2px;padding:.55rem .9rem;cursor:pointer;transition:all .2s;-webkit-appearance:none;touch-action:manipulation;min-height:44px;display:inline-flex;align-items:center;gap:.3rem}
+    .nlg-toggle:hover{border-color:var(--gold);color:var(--gold)}
+    .nlg-menu{display:none;position:absolute;top:100%;right:0;margin-top:.3rem;background:rgba(238,243,247,.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:2px;flex-direction:column;min-width:100%;z-index:101;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .nlg-menu.open{display:flex}
+    .nlb{font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);background:none;border:none;border-radius:0;padding:.55rem .9rem;cursor:pointer;transition:all .2s;-webkit-appearance:none;touch-action:manipulation;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .nlb:hover{background:rgba(74,122,150,.08);color:var(--ink)}
+    .nlb.on{color:var(--gold);font-weight:500}
 
     /* Hero */
     #hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;animation:fadeUp .9s .15s ease both}
@@ -190,10 +194,11 @@
   nav{padding:.75rem 1rem}
   .nl{gap:1.2rem}
   .nl a{font-size:.6rem;letter-spacing:.1em}
-  .nlb{font-size:.55rem;padding:.18rem .4rem}
+  .nlg-toggle{font-size:.55rem;padding:.3rem .6rem;min-height:36px}
+  .nlb{font-size:.55rem;padding:.4rem .7rem;min-height:36px}
 
   /* Landing — Postcard mobile */
-  #card-wrap{height:min(340px,60vh)}
+  #card-wrap{height:auto;aspect-ratio:520/360}
   .stamp-area,.postmark{display:none}
   .front-names{font-size:clamp(2rem,10vw,3rem)}
   .front-btns{flex-direction:column;align-items:center;gap:.5rem}
