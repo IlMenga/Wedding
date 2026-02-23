@@ -151,7 +151,7 @@
         }
         var btn = form.querySelector('.sub');
         if (btn) { btn.disabled = true; btn.style.opacity = '.5'; }
-        fetch('https://script.google.com/macros/s/AKfycbwbbRmRH20BHsMFnTGQs4sRahkDaREHoNfljhfRAcgQEBr0WhhBpPVzDBQHZ1WMWy0/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxK3cAZisFusO1puALVknF0gsHL4qo_RQ5oXNTalKg006GCfEaLFzP4e_gjWv4OHiE/exec', {
           method: 'POST',
           mode: 'no-cors',
           headers: {'Content-Type': 'application/json'},

@@ -179,7 +179,7 @@
     .fnote{margin-top:.9rem;font-size:.82rem;color:var(--stone);font-style:italic}
     .fnote a{color:var(--accent);text-decoration:none}
     .ok{display:none;text-align:center;padding:3rem 1rem;font-family:var(--serif);font-size:1.6rem;font-weight:300;font-style:italic;color:var(--accent)}
-    .ok span{display:block;margin-top:.6rem;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;font-style:normal;color:var(--stone)}
+    .ok > span > span{display:block;margin-top:.6rem;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;font-style:normal;color:var(--stone)}
 
     /* Footer */
     footer{text-align:center;padding:3rem 2rem;font-family:var(--sans);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);border-top:1px solid var(--border)}
@@ -199,6 +199,11 @@
 
   /* Landing — Postcard mobile */
   #card-wrap{height:auto;aspect-ratio:520/360}
+  .stamp-area{width:50px;height:60px;top:10px;right:10px}
+  .stamp-area svg{width:22px;height:22px}
+  .stamp-label{font-size:.22rem}
+  .postmark{width:45px;height:45px;top:14px;right:66px;border-width:1.5px}
+  .pm-text{font-size:.22rem}
   .front-names{font-size:clamp(2rem,10vw,3rem)}
   .front{padding:1.5rem 1.2rem}
   .front::before{inset:8px}
