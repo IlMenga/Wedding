@@ -77,13 +77,13 @@
     .nl a{font-family:var(--sans);font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .2s;-webkit-tap-highlight-color:transparent}
     .nl a:hover{color:var(--accent)}
     .nlg{position:relative}
-    .nlg-toggle{font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);background:none;border:1px solid var(--border);border-radius:2px;padding:.55rem .9rem;cursor:pointer;transition:all .2s;-webkit-appearance:none;touch-action:manipulation;min-height:44px;display:inline-flex;align-items:center;gap:.3rem}
-    .nlg-toggle:hover{border-color:var(--gold);color:var(--gold)}
+    .nlg-toggle{font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:none;border:1px solid transparent;border-radius:2px;padding:.55rem .7rem;cursor:pointer;transition:all .2s;-webkit-appearance:none;touch-action:manipulation;min-height:44px;display:inline-flex;align-items:center;gap:.2rem}
+    .nlg-toggle:hover{color:var(--accent);border-color:var(--border)}
     .nlg-menu{display:none;position:absolute;top:100%;right:0;margin-top:.3rem;background:rgba(238,243,247,.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:2px;flex-direction:column;min-width:100%;z-index:101;box-shadow:0 4px 12px rgba(0,0,0,.08)}
     .nlg-menu.open{display:flex}
-    .nlb{font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);background:none;border:none;border-radius:0;padding:.55rem .9rem;cursor:pointer;transition:all .2s;-webkit-appearance:none;touch-action:manipulation;min-height:44px;display:flex;align-items:center;justify-content:center}
-    .nlb:hover{background:rgba(74,122,150,.08);color:var(--ink)}
-    .nlb.on{color:var(--gold);font-weight:500}
+    .nlb{font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:none;border:none;border-radius:0;padding:.55rem .9rem;cursor:pointer;transition:all .2s;-webkit-appearance:none;touch-action:manipulation;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .nlb:hover{background:rgba(74,122,150,.08);color:var(--accent)}
+    .nlb.on{color:var(--accent);font-weight:600}
 
     /* Hero */
     #hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;animation:fadeUp .9s .15s ease both}
@@ -201,8 +201,13 @@
   #card-wrap{height:auto;aspect-ratio:520/360}
   .stamp-area,.postmark{display:none}
   .front-names{font-size:clamp(2rem,10vw,3rem)}
-  .front-btns{flex-direction:column;align-items:center;gap:.5rem}
-  .front-btn{width:100%;max-width:220px;text-align:center}
+  .front{padding:1.5rem 1.2rem}
+  .front::before{inset:8px}
+  .front-rule{margin:.8rem auto}
+  .front-date{font-size:.48rem}
+  .front-place{font-size:.85rem;margin-top:.2rem}
+  .front-btns{flex-direction:row;justify-content:center;gap:.35rem;margin-top:.8rem}
+  .front-btn{padding:.3rem .6rem;font-size:.38rem;letter-spacing:.1em}
   .back-face{grid-template-columns:1fr;padding:1.4rem}
   .back-divider,.back-left{display:none}
   .back-right{padding-left:0}

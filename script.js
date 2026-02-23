@@ -119,7 +119,7 @@
       }
 
       function togglePartner() {
-        var val = form.querySelector('input[name="plus_one"]:checked');
+        var val = form.querySelector('input[name="partner"]:checked');
         var yes = val && val.value === 'yes';
         var attending = form.querySelector('input[name="attending"]:checked');
         var isAttending = attending && attending.value === 'yes';
@@ -132,7 +132,7 @@
       form.querySelectorAll('input[name="attending"]').forEach(function(r) {
         r.addEventListener('change', toggleConditional);
       });
-      form.querySelectorAll('input[name="plus_one"]').forEach(function(r) {
+      form.querySelectorAll('input[name="partner"]').forEach(function(r) {
         r.addEventListener('change', togglePartner);
       });
       toggleConditional();
