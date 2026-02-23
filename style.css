@@ -199,11 +199,12 @@
 
   /* Landing — Postcard mobile */
   #card-wrap{height:auto;aspect-ratio:520/360}
-  .stamp-area{width:50px;height:60px;top:10px;right:10px}
-  .stamp-area svg{width:22px;height:22px}
-  .stamp-label{font-size:.22rem}
-  .postmark{width:45px;height:45px;top:14px;right:66px;border-width:1.5px}
-  .pm-text{font-size:.22rem}
+  .stamp-area{width:13.5%;height:auto;aspect-ratio:70/85;top:3%;right:3%}
+  .stamp-inner{width:75%;height:auto;aspect-ratio:1}
+  .stamp-area svg{width:100%;height:auto}
+  .stamp-label{font-size:clamp(.18rem,1.2vw,.38rem)}
+  .postmark{width:12.5%;height:auto;aspect-ratio:1;top:5%;right:17%;border-width:1.5px}
+  .pm-text{font-size:clamp(.18rem,1.1vw,.38rem)}
   .front-names{font-size:clamp(2rem,10vw,3rem)}
   .front{padding:1.5rem 1.2rem}
   .front::before{inset:8px}
