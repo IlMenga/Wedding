@@ -185,19 +185,6 @@
       });
     }
 
-    // IBAN copy
-    var ibanBtn = document.getElementById('iban-copy-btn');
-    if (ibanBtn) {
-      ibanBtn.addEventListener('click', function() {
-        var iban = document.getElementById('iban-val').textContent.replace(/\s/g,'');
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(iban).then(function() {
-            ibanBtn.classList.add('copied');
-            setTimeout(function(){ ibanBtn.classList.remove('copied'); }, 2000);
-          });
-        }
-      });
-    }
 
     // Restore saved language
     try {
