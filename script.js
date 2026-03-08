@@ -167,12 +167,21 @@
     }
 
 
-    // Women ideas gallery toggle
+    // Inspiration gallery toggles
+    var mBtn = document.getElementById('men-ideas-btn');
+    var mGal = document.getElementById('men-gallery');
     var wBtn = document.getElementById('women-ideas-btn');
     var wGal = document.getElementById('women-gallery');
+    if (mBtn && mGal) {
+      mBtn.addEventListener('click', function() {
+        mGal.classList.toggle('open');
+        if (wGal) wGal.classList.remove('open');
+      });
+    }
     if (wBtn && wGal) {
       wBtn.addEventListener('click', function() {
         wGal.classList.toggle('open');
+        if (mGal) mGal.classList.remove('open');
       });
     }
 
