@@ -43,11 +43,14 @@
   }
 
   function tabSwitch(id) {
-    document.querySelectorAll('.tp').forEach(function(p){ p.classList.remove('on'); });
-    document.querySelectorAll('.tb').forEach(function(b){ b.classList.remove('on'); });
     var p = document.getElementById('tp-'+id);
-    if (p) p.classList.add('on');
-    document.querySelectorAll('[data-tab="'+id+'"]').forEach(function(b){ b.classList.add('on'); });
+    var isOn = p && p.classList.contains('on');
+    document.querySelectorAll('.tp').forEach(function(el){ el.classList.remove('on'); });
+    document.querySelectorAll('.tb').forEach(function(b){ b.classList.remove('on'); });
+    if (!isOn) {
+      if (p) p.classList.add('on');
+      document.querySelectorAll('[data-tab="'+id+'"]').forEach(function(b){ b.classList.add('on'); });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function() {
