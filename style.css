@@ -140,7 +140,7 @@
     .dress-img{width:100%;height:100%;object-fit:cover}
 
     /* Area */
-    .ai{color:var(--stone);max-width:580px;margin-bottom:3rem}
+    .ai{color:var(--stone);margin-bottom:3rem}
     .tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
     .tb{font-family:var(--sans);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border:1px solid var(--border);border-radius:20px;background:transparent;cursor:pointer;color:var(--stone);transition:all .2s;-webkit-appearance:none;touch-action:manipulation}
     .tb:hover{border-color:var(--gold);color:var(--gold)}
