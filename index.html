@@ -320,7 +320,7 @@
     <p class="stag">RSVP</p>
     <h2><span class="e">Will you be <em>joining us?</em></span><span class="i">Ci sarete <em>con noi?</em></span><span class="s">&iquest;Vendr&eacute;is a <em>celebrar con nosotros?</em></span></h2>
     <div class="rule"></div>
-    <p class="lead"><span class="e">Please let us know by <strong>1 May 2026</strong>. Fill in one form per party.</span><span class="i">Vi chiediamo di rispondere entro il <strong>1&deg; maggio 2026</strong>. Compilate un modulo per ogni gruppo.</span><span class="s">Confirmad antes del <strong>1 de mayo de 2026</strong>. Rellenad un formulario por grupo.</span></p>
+    <p class="lead"><span class="e">Please let us know <strong>as soon as you can</strong>. Fill in one form per party.</span><span class="i">Vi chiediamo di rispondere <strong>il prima possibile</strong>. Compilate un modulo per ogni gruppo.</span><span class="s">Confirmad <strong>lo antes posible</strong>. Rellenad un formulario por grupo.</span></p>
     <form id="rf" name="rsvp" novalidate>
 
       <!-- Hidden: language used to fill the form -->
@@ -337,7 +337,7 @@
       <!-- ── 2. Attendance ── -->
       <div class="fr full">
         <div class="fi">
-          <label><span class="e">Will you attend?</span><span class="i">Parteciperete?</span><span class="s">¿Asistiréis?</span></label>
+          <label><span class="e">Will you attend the wedding on Saturday?</span><span class="i">Parteciperete sabato al matrimonio?</span><span class="s">&iquest;Asistir&eacute;is a la boda el s&aacute;bado?</span></label>
           <div class="radio-group">
             <label class="radio-label">
               <input type="radio" name="attending" value="yes" required/>
@@ -384,7 +384,28 @@
         </div>
       </div>
 
-      <!-- ── 5. Message ── -->
+      <!-- ── 5. Friday evening ── -->
+      <div class="fr full conditional inactive" id="f-friday-row">
+        <div class="fi">
+          <label><span class="e">Will you also join us on Friday evening?</span><span class="i">Ci sarete anche il venerd&igrave; sera?</span><span class="s">&iquest;Estar&eacute;is tambi&eacute;n el viernes por la noche?</span></label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="friday" value="yes_solo"/>
+              <span class="e">Yes, I'll be there</span><span class="i">S&igrave;, ci sar&ograve;</span><span class="s">S&iacute;, estar&eacute;</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="friday" value="yes_group"/>
+              <span class="e">Yes, we'll be there</span><span class="i">S&igrave;, ci saremo</span><span class="s">S&iacute;, estaremos</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="friday" value="no"/>
+              <span class="e">No</span><span class="i">No</span><span class="s">No</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 6. Message ── -->
       <div class="fr full conditional inactive" id="f-message-row">
         <div class="fi">
           <label for="f-message"><span class="e">A message for us</span><span class="i">Un messaggio per noi</span><span class="s">Un mensaje para nosotros</span></label>

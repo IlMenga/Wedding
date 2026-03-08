@@ -104,7 +104,7 @@
     var form = document.getElementById('rf');
     if (form) {
       // Conditional fields
-      var attendFields = form.querySelectorAll('#f-plusone-row, #f-dietary-row, #f-message-row');
+      var attendFields = form.querySelectorAll('#f-plusone-row, #f-dietary-row, #f-friday-row, #f-message-row');
       var partnerRow = document.getElementById('f-partner-row');
 
       function toggleConditional() {
@@ -151,7 +151,7 @@
         }
         var btn = form.querySelector('.sub');
         if (btn) { btn.disabled = true; btn.style.opacity = '.5'; }
-        fetch('https://script.google.com/macros/s/AKfycbxK3cAZisFusO1puALVknF0gsHL4qo_RQ5oXNTalKg006GCfEaLFzP4e_gjWv4OHiE/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbwHcxSCvnR4PhbnaLGnlk7JSk6DMraHJ1E0LaJAcObEOet_CoGnGPERVdRHwYDHL6g/exec', {
           method: 'POST',
           mode: 'no-cors',
           headers: {'Content-Type': 'application/json'},
