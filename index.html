@@ -7,7 +7,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=4" />
+    <link rel="stylesheet" href="style.css?v=99" />
+    <style>
+      /* ── Pots hero ── */
+      #hero { position:relative; overflow:visible; }
+      .pots-hero-img {
+        position:absolute; bottom:7%; left:50%;
+        transform:translateX(-50%);
+        /* width set by JS relative to heading */
+        pointer-events:none; z-index:2;
+      }
+      /* Text in front of pots */
+      #hero .ey, #hero .hn, #hero .hd, #hero .hp { position:relative; z-index:3; }
+      @media(max-width:650px) {
+        .pots-hero-img { bottom:5%; }
+      }
+    </style>
 </head>
 <body>
 
@@ -94,9 +109,13 @@
   <h1 class="hn">Alexia <em>&amp;</em> Paolo</h1>
   <p class="hd">13 &middot; 06 &middot; 2026</p>
   <p class="hp">La Bisbal d'Empord&agrave;</p>
-  <div class="sh">
+
+  <!-- Pots composite (all pots + blue background in one image) -->
+  <img class="pots-hero-img" src="pots-composite.png" alt=""/>
+
+  <div class="sh" style="visibility:hidden;">
     <svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M7 1v18M1 13l6 6 6-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span class="e">Scroll</span><span class="i">Scorri</span><span class="s">Desplazar</span>
+    <span>Scroll</span>
   </div>
 </section>
 
@@ -536,5 +555,16 @@
 </div>
 
 <script src="script.js?v=4"></script>
+<script>
+/* Size pots image relative to "Alexia & Paolo" heading */
+(function(){
+  var hn=document.querySelector('.hn'), img=document.querySelector('.pots-hero-img');
+  if(!hn||!img) return;
+  function sync(){ img.style.width = (hn.offsetWidth * 0.95) + 'px'; }
+  sync();
+  window.addEventListener('resize', sync);
+  new ResizeObserver(sync).observe(hn);
+})();
+</script>
 </body>
 </html>
