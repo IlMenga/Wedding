@@ -14,7 +14,7 @@
       .pots-hero-img {
         position:absolute; bottom:1%; left:50%;
         transform:translateX(-50%);
-        width:min(910px, 85.5vw);
+        /* width set by JS relative to heading */
         pointer-events:none; z-index:2;
       }
       /* Text in front of pots */
@@ -552,5 +552,16 @@
 </div>
 
 <script src="script.js?v=4"></script>
+<script>
+/* Size pots image relative to "Alexia & Paolo" heading */
+(function(){
+  var hn=document.querySelector('.hn'), img=document.querySelector('.pots-hero-img');
+  if(!hn||!img) return;
+  function sync(){ img.style.width = (hn.offsetWidth * 2.2) + 'px'; }
+  sync();
+  window.addEventListener('resize', sync);
+  new ResizeObserver(sync).observe(hn);
+})();
+</script>
 </body>
 </html>
