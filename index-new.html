@@ -11,34 +11,14 @@
     <style>
       /* ── Pots hero ── */
       #hero { position:relative; overflow:visible; }
-      .pots-wrap {
-        position:absolute; bottom:7.5%; left:0; right:0;
+      .pots-hero-img {
+        position:absolute; bottom:5%; left:50%;
+        transform:translateX(-50%);
+        width:min(1008px, 95vw);
         pointer-events:none; z-index:2;
       }
-      .pots-bg {
-        position:absolute; bottom:-10%; left:50%; transform:translateX(-50%) scaleY(0.90);
-        transform-origin:bottom; width:70%;
-        pointer-events:none; z-index:0;
-      }
-      .pots-row {
-        position:relative; z-index:1;
-        display:flex; align-items:flex-end; justify-content:center;
-        gap:1.5rem; padding:0 1rem;
-        max-width:900px; margin:0 auto; transform:translateX(6%);
-      }
-      .pot { flex:0 1 auto; object-fit:contain; }
-      .pot-bracci   { height:min(386px, 27vw); transform:translateX(-10%); }
-      .pot-piccola  { height:min(304px, 21vw); }
-      .pot-manico   { height:min(328px, 23vw); }
-      .pot-collo    { height:min(632px, 44vw); transform:scaleX(1.098) translateX(0%); }
-      .pot-tozza    { height:min(359px, 25vw); }
-
       /* Text in front of pots */
       #hero .ey, #hero .hn, #hero .hd, #hero .hp { position:relative; z-index:3; }
-
-      @media(max-width:650px) {
-        .pots-row { gap:.8rem; }
-      }
     </style>
 </head>
 <body>
@@ -127,17 +107,8 @@
   <p class="hd">13 &middot; 06 &middot; 2026</p>
   <p class="hp">La Bisbal d'Empord&agrave;</p>
 
-  <!-- Pots with background -->
-  <div class="pots-wrap">
-    <img class="pots-bg" src="sfondo-blu.png" alt=""/>
-    <div class="pots-row">
-      <img class="pot pot-bracci" src="anfora-bracci-fiori.png" alt=""/>
-      <img class="pot pot-piccola" src="anfora-piccola-fiori.png" alt=""/>
-      <img class="pot pot-manico" src="anfora-manico-fiori.png" alt=""/>
-      <img class="pot pot-collo" src="anfora-collo-lungo-fiori.png?v=2" alt=""/>
-      <img class="pot pot-tozza" src="anfora-tozza-fiori.png" alt=""/>
-    </div>
-  </div>
+  <!-- Pots composite (all pots + blue background in one image) -->
+  <img class="pots-hero-img" src="pots-composite.png" alt=""/>
 
   <div class="sh" style="visibility:hidden;">
     <svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M7 1v18M1 13l6 6 6-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
