@@ -12,7 +12,7 @@
       /* ── Pots hero ── */
       #hero { position:relative; overflow:visible; }
       .pots-hero-img {
-        position:absolute; bottom:5%; left:50%;
+        position:absolute; bottom:8%; left:50%;
         transform:translateX(-50%);
         /* width set by JS relative to heading */
         pointer-events:none; z-index:2;
@@ -557,7 +557,7 @@
 (function(){
   var hn=document.querySelector('.hn'), img=document.querySelector('.pots-hero-img');
   if(!hn||!img) return;
-  function sync(){ img.style.width = (hn.offsetWidth * 0.9) + 'px'; }
+  function sync(){ img.style.width = (hn.offsetWidth * 0.95) + 'px'; }
   sync();
   window.addEventListener('resize', sync);
   new ResizeObserver(sync).observe(hn);
