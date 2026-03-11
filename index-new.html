@@ -557,7 +557,7 @@
 (function(){
   var hn=document.querySelector('.hn'), img=document.querySelector('.pots-hero-img');
   if(!hn||!img) return;
-  function sync(){ img.style.width = (hn.offsetWidth * 1.1) + 'px'; }
+  function sync(){ img.style.width = (hn.offsetWidth * 0.9) + 'px'; }
   sync();
   window.addEventListener('resize', sync);
   new ResizeObserver(sync).observe(hn);
